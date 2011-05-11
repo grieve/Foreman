@@ -36,4 +36,4 @@
 	<?php endforeach; ?>
 
 </table>
-    <?php echo $this->element("navigation"); ?>
+<?php echo $this->element("navigation"); ?>

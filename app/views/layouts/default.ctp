@@ -35,9 +35,7 @@
 </head>
 <body>
 	<div id="container">
-		<div id="header">
-			<h1>Foreman: MC Server Control</h1>
-		</div>
+    <br/>
 		<div id="content">
 
 			<?php echo $this->Session->flash(); ?>

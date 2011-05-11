@@ -49,3 +49,4 @@
   endforeach;
 ?>
 </table>
+<?php echo $this->element("navigation"); ?>

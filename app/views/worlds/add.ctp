@@ -5,3 +5,4 @@
     echo $this->Form->input("name");
     echo $this->Form->end("Save");
 ?>
+<?php echo $this->element("navigation"); ?>

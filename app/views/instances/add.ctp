@@ -11,3 +11,4 @@
     echo $this->Form->end("Save");
     echo $this->element("navigation");
 ?>
+<?php echo $this->element("navigation"); ?>

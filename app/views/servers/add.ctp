@@ -6,3 +6,4 @@
     echo $this->Form->input("file", array("type" => "file"));
     echo $this->Form->end("Save");
 ?>
+<?php echo $this->element("navigation"); ?>
