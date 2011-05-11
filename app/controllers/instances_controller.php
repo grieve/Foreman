@@ -1,24 +1,30 @@
 <?php
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- * Description of InstancesController
- *
- * @author grieve
- */
 class InstancesController extends AppController
 {
-    var $helpers = array("Html", "Form", "Session");
     var $name = "Instances";
-    var $uses = array("Instance", "Server");
+    var $uses = array("Instance", "Server", "World");
     var $components = array('Session');
 
     function index()
     {
         $this->set("instances", $this->Instance->find('all'));
+        $servers = $this->Server->find("all");
+        $serverOptions = array();
+        foreach ($servers as $server)
+        {
+          $serverOptions[$server['Server']['id']] =
+          $server['Server']['name']." (".$server['Server']['filename'].")";
+        }
+        $this->set('servers', $serverOptions);
+
+        $worlds = $this->World->find("all");
+        $worldOptions = array();
+        foreach ($worlds as $world)
+        {
+          $worldOptions[$world['World']['id']] =
+          $world['World']['name'];
+        }
+        $this->set('worlds', $worldOptions);
     }
 
     function view($id = null)
@@ -30,19 +36,25 @@ class InstancesController extends AppController
     function add()
     {
         $servers = $this->Server->find("all");
-        $serverOption = array();
+        $serverOptions = array();
         foreach ($servers as $server)
         {
-          $serverOptions[$server['Server']]
+          $serverOptions[$server['Server']['id']] =
+          $server['Server']['name']." (".$server['Server']['filename'].")";
         }
+        $this->set('servers', $serverOptions);
 
+        $worlds = $this->World->find("all");
+        $worldOptions = array();
+        foreach ($worlds as $world)
+        {
+          $worldOptions[$world['World']['id']] =
+          $world['World']['name'];
+        }
+        $this->set('worlds', $worldOptions);
 
         if(!empty($this->data))
         {
-            if ($this->data['Instance']['binary'] == 0)
-            {
-
-            }
             if($this->Instance->save($this->data))
             {
                 $this->Session->setFlash("'".$this->data['Instance']['name']."' saved successfully.");

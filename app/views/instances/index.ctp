@@ -5,7 +5,8 @@
 		<th>Id</th>
 		<th>Name</th>
 		<th>Description</th>
-                <th>Binary</th>
+                <th>Server</th>
+                <th>World</th>
                 <th>Memory</th>
                 <th>Actions</th>
 	</tr>
@@ -25,7 +26,8 @@
 ?>
 		</td>
 		<td><?php echo $instance['Instance']['description']; ?></td>
-                <td><?php echo $instance['Instance']['server_id']; ?></td>
+                <td><?php echo $servers[$instance['Instance']['server_id']]; ?></td>
+                <td><?php echo $worlds[$instance['Instance']['world_id']]; ?></td>
 		<td><?php echo $instance['Instance']['memory']; ?>MB</td>
                 <td>
                     <?php echo $this->Html->link('Delete', array('action' => 'delete', $instance['Instance']['id']), null, 'Are you sure?')?>
@@ -34,3 +36,4 @@
 	<?php endforeach; ?>
 
 </table>
+    <?php echo $this->element("navigation"); ?>

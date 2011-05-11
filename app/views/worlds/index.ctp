@@ -1,34 +1,28 @@
-<h1>Servers</h1>
-<p><?php echo $this->Html->link('Add New Server', array('action' => 'add')); ?></p>
+<h1>Worlds</h1>
+<p><?php echo $this->Html->link('Add New World', array('action' => 'add')); ?></p>
 <table>
   <tr>
     <th>Id</th>
     <th>Name</th>
-    <th>Path</th>
     <th>Actions</th>
   </tr>
 <?php
-  foreach ($servers as $server):
+  foreach ($worlds as $world):
 ?>
   <tr>
     <td>
 <?php
-  echo $server['Server']['id'];
+  echo $world['World']['id'];
 ?>
     </td>
     <td>
 <?php
     echo $this->Html->link(
-                            $server['Server']['name'],
+                            $world['World']['name'],
                             array(
-                                    'controller' => 'servers',
+                                    'controller' => 'worlds',
                                     'action' => 'view',
-                                    $server['Server']['id']));
-?>
-    </td>
-    <td>
-<?php
-  echo $server['Server']['filename'];
+                                    $world['World']['id']));
 ?>
     </td>
     <td>
@@ -37,7 +31,7 @@
                           'Delete',
                           array (
                                   'action' => 'delete',
-                                  $server['Server']['id']
+                                  $world['World']['id']
                                 ),
                           null,
                           'Are you sure?'
