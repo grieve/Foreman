@@ -8,7 +8,7 @@ class ServersController extends AppController
 
     function index()
     {
-        $this->set("servers", $this->Server->find('all'));
+        $this->set("servers", $this->Server->find('all');
     }
 
 }
