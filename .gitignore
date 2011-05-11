@@ -1,3 +1,4 @@
-app/tmp
+app/tmp/
+app/webroot/uploads/
 vendors/
 bin/
