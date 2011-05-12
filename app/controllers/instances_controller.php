@@ -49,7 +49,7 @@ class InstancesController extends AppController
         foreach ($worlds as $world)
         {
           $worldOptions[$world['World']['id']] =
-          $world['World']['name'];
+          $world['World']['name']." (".$world['World']['filename'].")";
         }
         $this->set('worlds', $worldOptions);
 
@@ -77,6 +77,16 @@ class InstancesController extends AppController
             $this->Session->setFlash("'".$postDetails['Instance']['name']."' deleted.");
             $this->redirect(array("action" => "index"));
         }
+    }
+
+    function start($id = null)
+    {
+      $this->redirect(array("action" => "view", $id));
+    }
+
+    function stop($id = null)
+    {
+      $this->redirect(array("action" => "view", $id));
     }
 }
 ?>

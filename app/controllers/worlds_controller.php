@@ -42,3 +42,5 @@ class WorldsController extends AppController
     }
 
 }
+
+?>

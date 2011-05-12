@@ -16,22 +16,40 @@
 <?php echo $instance['Instance']['id']; ?>
                 </td>
 		<td>
-<?php
-    echo $this->Html->link(
-                            $instance['Instance']['name'],
-                            array(
-                                    'controller' => 'instances',
-                                    'action' => 'view',
-                                    $instance['Instance']['id']));
-?>
+<?php echo $instance['Instance']['name']; ?>
 		</td>
-		<td><?php echo $instance['Instance']['description']; ?></td>
-                <td><?php echo $servers[$instance['Instance']['server_id']]; ?></td>
-                <td><?php echo $worlds[$instance['Instance']['world_id']]; ?></td>
-		<td><?php echo $instance['Instance']['memory']; ?>MB</td>
-                <td>
-                    <?php echo $this->Html->link('Delete', array('action' => 'delete', $instance['Instance']['id']), null, 'Are you sure?')?>
-                </td>
+		<td>
+<?php echo $instance['Instance']['description']; ?>
+    </td>
+    <td>
+<?php echo $servers[$instance['Instance']['server_id']]; ?>
+    </td>
+    <td>
+<?php echo $worlds[$instance['Instance']['world_id']]; ?>
+    </td>
+		<td>
+<?php echo $instance['Instance']['memory']; ?>MB
+    </td>
+    <td>
+<?php
+  echo $this->Html->image('icons/control_play.png',
+                          array("url" => array('action' => 'start',
+                                             $instance['Instance']['id']),
+                                "alt" => "Start Instance"));
+  echo $this->Html->image('icons/control_stop.png',
+                          array("url" => array('action' => 'stop',
+                                               $instance['Instance']['id']),
+                                "alt" => "Stop Instance"));
+  echo $this->Html->image('icons/pencil.png',
+                          array("url" => array('action' => 'edit',
+                                               $instance['Instance']['id']),
+                                "alt" => "Edit Instance"));
+  echo $this->Html->image('icons/cross.png',
+                          array("url" => array('action' => 'delete',
+                                               $instance['Instance']['id']),
+                                "alt" => "Edit Instance"));
+?>
+    </td>
 	</tr>
 	<?php endforeach; ?>
 
